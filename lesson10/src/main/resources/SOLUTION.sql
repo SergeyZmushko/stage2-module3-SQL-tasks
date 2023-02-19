@@ -1,0 +1,2 @@
+SELECT subject.id, subject.name, subject.description, subject.grade FROM subject INNER JOIN mark ON subject.id = mark.subject_id GROUP BY subject.id HAVING avg(mark.mark) > (SELECT avg(mark) FROM mark);
+SELECT student.id, student.name, student.birthday, student.groupnumber FROM student INNER JOIN payment ON student.id = payment.student_id GROUP BY student.id HAVING sum(payment.amount) < (SELECT avg(payment_sum) FROM (SELECT sum(payment.amount) AS payment_sum FROM payment GROUP BY student_id));

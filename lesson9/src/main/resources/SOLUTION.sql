@@ -1,0 +1,3 @@
+SELECT student.id, student.name, avg(mark) FROM mark INNER JOIN student ON student.id = mark.student_id GROUP BY student_Id HAVING avg(mark) > 8;
+SELECT student.id, student.name FROM mark INNER JOIN student ON student.id = mark.student_id GROUP BY student_Id HAVING min(mark) > 7;
+SELECT student.id, student.name FROM payment INNER JOIN student ON student.id = payment.student_id WHERE payment.payment_date > '20190101' GROUP BY payment.student_id HAVING count(payment.payment_date) >= 2;
